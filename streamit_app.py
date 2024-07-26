@@ -1,9 +1,12 @@
 # Import python packages
 
 import streamlit as st
-
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 from snowflake.snowpark.functions import col
 
+
+fv_df=st.dataframe(data=fruityvice_response.json(),use_container_width=True)
 st.title("My Parents new healthy diet")
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie:cup_with_straw:")
@@ -59,4 +62,4 @@ if submitted:
 
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
+
