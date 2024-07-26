@@ -55,3 +55,8 @@ if submitted:
          st.success('Your Smoothie is ordered!', icon="✅")
     except:
         st.write("Something went Wrong")
+
+
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
